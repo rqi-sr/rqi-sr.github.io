@@ -93,7 +93,7 @@ INSAIT, Sofia University</span>
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code - Coming Soon</span>
                   </a>
                 </span>
             </div>
@@ -109,14 +109,10 @@ INSAIT, Sofia University</span>
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+      <img src="static/images/Fig1-1.png" alt="Descriptive caption" style="width: 120%; height: auto;">
+      <figcaption class="is-size-5.5 has-text-left mt-2">
+        We show that even Ground Truth (GT) images (middle) in existing SR datasets can show relatively poor quality. As a result, image metrics tend to favor outputs that more resemble the reference GTs, even when they are perceptually poorer (left side), leading to contradictory evaluations with human preferences (right side). Here, we analyze how GT quality affects the evaluation of SR models and propose RQI to fairly assess SR models with imperfect GTs.
+      </figcaption>
     </div>
   </div>
 </section>
@@ -130,7 +126,7 @@ INSAIT, Sofia University</span>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            While recent advancing image super-resolution (SR) techniques are continually improving the perceptual quality of their outputs, they can usually fail in quantitative evaluations. This inconsistency leads to a growing distrust in existing image metrics for SR evaluations. Though image evaluation depends on both the metric and the reference ground truth (GT),  researchers typically do not inspect the role of GTs, as they are generally accepted as `perfect' references. However, due to the data being collected in the early years and the ignorance of controlling other types of distortions, we point out that GTs in existing SR datasets can exhibit relatively poor quality, which leads to biased evaluations. Following this observation, in this paper, we are interested in the following questions: Are GT images in existing SR datasets 100% trustworthy for model evaluations? How does GT quality affect this evaluation? And how to make fair evaluations if there exist imperfect GTs? To answer these questions, this paper presents two main contributions. First, by systematically analyzing seven state-of-the-art SR models across three real-world SR datasets, we show that SR performances can be consistently affected across models by low-quality GTs, and models can perform quite differently when GT quality is controlled. Second, we propose a novel perceptual quality metric, Relative Quality Index (RQI),  that measures the relative quality discrepancy of image pairs, thus issuing the biased evaluations caused by unreliable GTs. Our proposed model achieves significantly better consistency with human opinions. We expect our work to provide insights for the SR community on how future datasets, models, and metrics should be developed.
           </p>
         </div>
       </div>
@@ -140,38 +136,62 @@ INSAIT, Sofia University</span>
 <!-- End paper abstract -->
 
 
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-three-fifths has-text-centered">
+        <h2 class="title is-3 has-text-left">How GT quality affects SR model evaluations?</h2>
+        <figure>
+          <img src="static/images/Fig2.png" alt="Descriptive caption">
+          <figcaption class="is-size-5.5 has-text-left mt-2">
+            By gradually discarding low quality GTs from testing datasets (images are from DIV2K, RealSR and DRealSR) and evaluate on the remaining high quality GTs, we make several observations: 1. Challenging images will always be challenging (for all the models, similar performance fluctuations occur when the same image is discarded). 2. High quality GTs are more challenging for SR models (by observing a consistent performance drop for all the models and on all the metrics). 3. Evaluation results can be different when GT quality is controlled (for example, SeeSR moves from  Rank #6 to Rank #2 by LPIPS and from Rank #6 to Rank #1 by DISTS, by considering only high quality GTs). 4. The perception-distortion tradeoff also exists.
+      </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-three-fifths has-text-centered">
+        <h2 class="title is-3 has-text-left">How to make fair evaluations with imperfect GTs?</h2>
+        <figure>
+          <img src="static/images/Fig3.png" alt="Descriptive caption" style="width: 500px; height: auto;">
+          <figcaption class="is-size-5.5 has-text-left mt-2">
+            Our solution is straightforward and simple: Since we do not recognize GTs as perfect references, we allow cases in which model outputs can achieve better quality than the GT. Therefore, we propose RQI (Relative Quality Index) to measure the relative quality from target images to GTs. RQI differs from traditional FR-IQA scheme in three aspects: 1. RQI is dependent with the input order. 2. We substitute reference image $I_0$ to any image $I_i$ in the distorted image sequence to cover complicated cases where GTs contain varying distortions. 3. We calculate relative quality discrepancy as label.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-left">Quantitative Results</h2>
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
+       <div class="item is-flex is-justify-content-center">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+        <img src="static/images/Fig4.png" alt="MY ALT TEXT" style="width: 500px; height: auto;"/>
       </div>
-      <div class="item">
+      <div class="item is-flex is-justify-content-center">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
+        <img src="static/images/Fig5.png" alt="MY ALT TEXT" style="width: 1000px; height: auto;"/>
       </div>
-      <div class="item">
+      <div class="item is-flex is-justify-content-center">
         <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
+        <img src="static/images/Fig6.png" alt="MY ALT TEXT" style="width: 1000px; height: auto;"/>
      </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+    </div>
     </div>
   </div>
 </div>
@@ -180,90 +200,76 @@ INSAIT, Sofia University</span>
 <!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
+<!-- Image carousel -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3 has-text-left">Qualitative Results</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/Fig8-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle  is-size-6 has-text-left mt-2">
+          We show different cases where existing metrics can fail. Up-left: distortion-based FR-IQA metric SSIM tend to favor blurry regions rather than perceptually good textures. Up-right: NR-IQA metric ClipIQA cannot handle cases where image semantics are changed due to the lack of proper reference. Bottom: perception-based FR-IQA metrics LPIPS and DISTS can fail when model outputs are perceptually better than GTs. As a comparison, RQI handles all the cases correctly. All scores are normalized to [0,1] for easier comparisons.
+        </h2>
       </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/Fig10-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle  is-size-6 has-text-left mt-2">
+          More examples of distortion-based FR-IQA metrics SSIM and PSNR, which tend to favor blurry regions over textures, leading to contradictory predictions with human perception.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/Fig11-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle  is-size-6 has-text-left mt-2">
+          More examples of NR-IQA metrics PI, NIQE, Clip-IQA and MANIQA, which fail on cases where subtle structure of semantics are changed, due to the lack of proper references.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/Fig12-1.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle  is-size-6 has-text-left mt-2">
+        More examples of perception-based FR-IQA metrics LPIPS and DISTS, which can fail when GT quality is relatively lower. They make contradictory evaluations for models that output perceptually higher results than GTs.
+     </h2>
+   </div>
     </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
+<!-- End image carousel -->
 
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>
+        @article{su2025rethinking,
+        title={Rethinking Image Evaluation in Super-Resolution},
+        author={Su, Shaolin and Rocafort, Josep M and Xue, Danna and Serrano-Lozano, David and Sun, Lei and Vazquez-Corral, Javier},
+        journal={arXiv preprint arXiv:2503.13074},
+        year={2025}
+      }</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
+
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+  <div class="container is-max-desktop">
+    <h2 class="title">Acknowledgements</h2>
+    <p class="content">
+      This work was supported by the HORIZON MSCA Project funded by the European Union (project number 101152858), Grant PID2021-128178OB-I00 funded by MCIN/AEI/10.13039/501100011033, ERDF ``A way of making Europe'', the Departament de Recerca i Universitats from Generalitat de Catalunya with ref. 2021SGR01499. Shaolin Su was supported by the HORIZON MSCA Postdoctoral Fellowships. Danna Xue was supported by the grant Càtedra ENIA UAB-Cruïlla (TSI-100929-2023-2) from the Ministry of Economic Affairs and Digital Transition of Spain. David Serrano-Lozano was supported by the FPI grant from Spanish Ministry of Science and Innovation (PRE2022-101525). Lei Sun was partially funded by the Ministry of Education and Science of Bulgaria’s support for INSAIT as part of the Bulgarian National Roadmap for Research Infrastructure.
+
+    </p>
+  </div>
+</div>
+</section>
 
 
   <footer class="footer">
