@@ -104,6 +104,19 @@ INSAIT, Sofia University</span>
   </div>
 </section>
 
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="hero">
+    <div class="container is-max-desktop has-text-centered">
+      <p style="font-style: italic; font-size: 40px; font-family: 'Sacramento', cursive; color: #008cff; margin-bottom: 50px;">
+        In a nutshell: try RQI to evaluate Super-Resolution models </br> and get fair comparisons
+      </p>
+    </div>
+  </section>
+</body>
+
 
 <!-- Teaser video-->
 <section class="hero teaser">
@@ -159,6 +172,23 @@ INSAIT, Sofia University</span>
   <div class="hero-body">
     <div class="columns is-centered">
       <div class="column is-three-fifths has-text-centered">
+        <h2 class="title is-3 has-text-left">What about GT quality in existing SR datasets?</h2>
+        <figure style="margin-top: 50px;">
+          <img src="static/images/6_d-1.png" alt="Descriptive caption" style="width: 650px; height: auto;">
+          <figcaption class="is-size-5.5 has-text-left mt-4">
+            We compare GT images and varying model outputs in four SR test sets, and show the statistics of the perceptually best images from a well-controlled user-study. Three observations can be made from the statistics: 1. There exist model outputs better than GTs, and the percentage increases when the dataset contains poorer GTs (e.g. a small percentage for DIV2K and more than a half for Set5 & Set14). 2. Diffusion-based models generally perform better as most of the preferred model outputs are from diffusion-based models. 3. SeeSR is generally preferred by users, which is also consistent with the observation in the above study.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-three-fifths has-text-centered">
         <h2 class="title is-3 has-text-left">How to make fair evaluations with imperfect GTs?</h2>
         <figure>
           <img src="static/images/Fig3.png" alt="Descriptive caption" style="width: 500px; height: auto;">
@@ -174,7 +204,7 @@ INSAIT, Sofia University</span>
 
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-left">Quantitative Results</h2>
@@ -201,7 +231,7 @@ INSAIT, Sofia University</span>
 
 
 <!-- Image carousel -->
-<section class="hero is-small is-light">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3 has-text-left">Qualitative Results</h2>
@@ -243,7 +273,8 @@ INSAIT, Sofia University</span>
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <section class="hero is-small is-light" id="BibTeX">
+    <div class="section">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
@@ -254,11 +285,12 @@ INSAIT, Sofia University</span>
         year={2025}
       }</code></pre>
     </div>
+  </div>
 </section>
 <!--End BibTex citation -->
 
 
-<section class="hero is-light">
+<section class="hero">
   <div class="hero-body">
     <div class="container">
   <div class="container is-max-desktop">
